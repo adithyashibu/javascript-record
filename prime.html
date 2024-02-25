@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Number Finder</title>
+</head>
+<body>
+    <h1>Prime Number Finder</h1>
+    <label for="start">Start Range:</label>
+    <input type="text" id="start" name="low" placeholder="Start Number"><br><br>
+    <label for="end">End Range:</label>
+    <input type="text" id="end" name="up" placeholder="End Number">
+    <button onclick="calcPrimes()">Find Primes</button>
+    <p id="result"></p>
+
+    <script>
+        function calcPrimes() {
+            var a = parseInt(document.getElementById("start").value);
+            var b = parseInt(document.getElementById("end").value);
+            var n, i;
+            for (n = a; n <= b; n++) {
+                for (i = 2; i < n; i++) {
+                    if (n % i === 0) {
+                        break;
+                    }
+                }
+                if (i === n) {
+                    document.getElementById("result").innerHTML += "<br>" + n;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
